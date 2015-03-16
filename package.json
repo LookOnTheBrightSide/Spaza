@@ -1,0 +1,21 @@
+{
+  "name": "Spaza",
+  "version": "0.2.0",
+  "description": "Nelisa's Spaza Shop",
+  "main": "",
+  "scripts": {
+    "test": "qunit -c ./productManager.js -t ./test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Django0505/codeX_ReleaseOneNarrative"
+  },
+  "author": "Django0505,LookOnTheBrightSide",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/Django0505/codeX_ReleaseOneNarrative/issues"
+  },
+  "dependencies": {
+    "qunit": "~0.7.5"
+  }
+}
