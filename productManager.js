@@ -15,7 +15,7 @@ exports.returnsMostSellingProd = function(productsSoldMap){
 	}
 
   	return mostSold;	
-}
+};
 
 exports.returnsLeastSellingProd = function(productsSoldMap){
 
@@ -34,7 +34,7 @@ exports.returnsLeastSellingProd = function(productsSoldMap){
 	}
 
   	return leastSold;	
-}
+};
 
 exports.returnsMostSellingCat = function(categoryMap){
 
@@ -54,7 +54,7 @@ exports.returnsMostSellingCat = function(categoryMap){
 	}
   return mostSellingCat; 
   		
-}
+};
 exports.returnsLeastSellingCat = function(categoryMap){
 
 	var leastSellingCat = { name : "" ,
@@ -73,4 +73,4 @@ exports.returnsLeastSellingCat = function(categoryMap){
 	}
 
   	return leastSellingCat;	
-}
+};
