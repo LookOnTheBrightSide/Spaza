@@ -42,33 +42,32 @@ exports.returnsMostSellingCat = function(categoryMap){
 					 qty : 0};
 
 	// ??
-	for(category in categoryMap){
-		 var qtySold = categoryMap[category.qty];
-     	if(categoryMap.hasOwnProperty(category)){
-       		qtySold = categoryMap[category.qty];
-	        	if(qtySold > mostSellingCat.qty){
-	       		
-              	mostSellingCat.qty = qtySold;
-              	mostSellingCat.name = product;
-             	
-	         }    
-		 }
+	for(var category in categoryMap){
+ 
+		 if(categoryMap.hasOwnProperty(category)){
+      		var qtySold = categoryMap[category];
+	       	if(qtySold > mostSellingCat.qty){
+             	mostSellingCat.qty = qtySold;
+             	mostSellingCat.name = category;
+	        }         
+		}
 	}
   return mostSellingCat; 
   		
 }
-exports.returnsLeastSellingCat = function(productsSoldMap){
+exports.returnsLeastSellingCat = function(categoryMap){
 
 	var leastSellingCat = { name : "" ,
 				qty : Number.POSITIVE_INFINITY};
 
 	// ??
-	for(var product in productsSoldMap){
-    	if(productsSoldMap.hasOwnProperty(product)){
-      		var qtySold = productsSoldMap[product];
-	       	if( qtySold < leastSellingCat.qty){
+	for(var category in categoryMap){
+ 
+		 if(categoryMap.hasOwnProperty(category)){
+      		var qtySold = categoryMap[category];
+	       	if(qtySold < leastSellingCat.qty){
              	leastSellingCat.qty = qtySold;
-             	leastSellingCat.name = product;
+             	leastSellingCat.name = category;
 	        }         
 		}
 	}

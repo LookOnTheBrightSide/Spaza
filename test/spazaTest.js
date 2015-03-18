@@ -24,14 +24,14 @@ QUnit.test("testing leastSold function", function(assert){
 
 QUnit.test("testing most selling category function", function(assert){
 
-    var objToTest = [{"freshFruit":{"apples":1,"bananas":3,"grapes":8}},{"freshFlowers":{"protea":11,"rose":23,"lilly":88}},{"team":{"pirates":112,"chiefs":30,"sundowns":60}}];
-    var result3 = pm.returnsLeastSellingCat(objToTest);
-    assert.deepEqual(result3, {categoryName : 'team', qty : 202});
+    var objToTest = {"freshFruit":12,"freshFlowers":122,"team":202};
+    var result3 = pm.returnsMostSellingCat(objToTest);
+    assert.deepEqual(result3, {name:'team' ,qty: 202});
 });
 
 QUnit.test("testing least selling category function", function(assert){
 
-var objToTest = [{"freshFruit":{"apples":1,"bananas":3,"grapes":8}},{"freshFlowers":{"protea":11,"rose":23,"lilly":88}},{"team":{"pirates":112,"chiefs":30,"sundowns":60}}];
+var objToTest = {"freshFruit":12,"freshFlowers":122,"team":202};
     var result4 = pm.returnsLeastSellingCat(objToTest);
-    assert.deepEqual(result4, {categoryName : 'freshFruit', qty : 12});
+    assert.deepEqual(result4, {name:'freshFruit',qty: 12});
 });

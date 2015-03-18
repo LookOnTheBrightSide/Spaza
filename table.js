@@ -57,13 +57,14 @@ csvConverter.on("end_parsed",function(products){
       categoryMap[categoryName] = categoryMap[categoryName] +qty;
     
   });
-
-	console.log(categoryMap);
-	console.log(productsSoldMap);
-  console.log(productManager.returnsMostSellingCat(categoryMap));
+  console.log(categoryMap);
+	console.log("\nAll the categories:\n " + JSON.stringify(categoryMap));
+	console.log("\nAll products and their sales totals :\n " + JSON.stringify(productsSoldMap));
+  console.log("\nMost selling category : \n" + JSON.stringify(productManager.returnsMostSellingCat(categoryMap)));
+   console.log("\nLeast selling category : \n" + JSON.stringify(productManager.returnsLeastSellingCat(categoryMap)));
 		//console.log(productsSoldMap);
-    	//console.log(productManager.returnsMostSellingProd(productsSoldMap));
- 		//console.log(productManager.returnsLeastSellingProd(productsSoldMap));
+  console.log("\nMost sold product :\n " + JSON.stringify(productManager.returnsMostSellingProd(productsSoldMap)));
+ 	console.log("\nLeast sold product : \n" +JSON.stringify(productManager.returnsLeastSellingProd(productsSoldMap)));
 });
 
 
