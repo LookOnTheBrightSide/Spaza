@@ -57,15 +57,35 @@ csvConverter.on("end_parsed", function(products) {
                 categoryMap[categoryName] = categoryMap[categoryName] + qty;
 
         });
-        //console.log(" All the totals \n \t : " + categoryMap);
+
+
+        //daysSoldMap
+        
+        var daysSoldMap = {};
+
+        products.forEach(function(product) {
+                var productName = product["stock item"];
+                //var Days =product["Day"];
+                var qty = product["No sold"];
+                //var totalDaysSold = 0;
+                if (!daysSoldMap[productName]) {
+                        daysSoldMap[productName] = 0;
+                        
+                }
+                if(qty > 0){
+                  daysSoldMap[productName] +=1;  //product["No sold"] ;//+ totalDaysSold;
+                  
+                }
+        });
+        console.log(daysSoldMap);
         console.log("\nAll the categories:\n \t" + JSON.stringify(categoryMap));
         console.log("\nAll products and their sales totals :\n \t" + JSON.stringify(productsSoldMap));
         console.log("\nMost selling category : \n \t" + JSON.stringify(productManager.returnsMostSellingCat(categoryMap)));
         console.log("\nLeast selling category : \n \t" + JSON.stringify(productManager.returnsLeastSellingCat(categoryMap)));
-        //console.log(productsSoldMap);
         console.log("\nMost sold product :\n \t" + JSON.stringify(productManager.returnsMostSellingProd(productsSoldMap)));
         console.log("\nLeast sold product : \n \t" + JSON.stringify(productManager.returnsLeastSellingProd(productsSoldMap)));
-});
+        console.log("\nMost regular sales : \n \t" + JSON.stringify(productManager.returnsMostRegularSales(daysSoldMap)));
+}); 
 
 
 //read from file
