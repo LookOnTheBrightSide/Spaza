@@ -40,13 +40,14 @@ QUnit.test("testing least selling category function", function(assert){
 QUnit.test("testing most regular sales function",function(assert){
     var objToTest = {"freshFruit":12,"flowers":122,"team":19};
     var result5 = pm.returnsMostRegularSales(objToTest);
-    assert.deepEqual(result5,{"name":"flowers","days sold": 122});
+    assert.deepEqual(result5,[{"name":"flowers","days": 122}]);
 });
+
 //least regular sales
 QUnit.test('least regular sales', function(assert) {
     var objToTest = {"freshFruit":12,"flowers":122,"team":19};
     var result6 = pm.returnsLeastRegularSales(objToTest);
-    assert.deepEqual(result6,{"name":"freshFruit","days sold": 12});
+    assert.deepEqual(result6,[{"name":"freshFruit","days": 12}]);
 });
 
 

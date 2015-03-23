@@ -79,14 +79,56 @@ csvConverter.on("end_parsed", function(products) {
         });
         console.log(daysSoldMap);
         console.log("\nAll the categories:\n \t" + JSON.stringify(categoryMap));
-        console.log("\nAll products and their sales totals :\n \t" + JSON.stringify(productsSoldMap));
-        console.log("\nMost selling category : \n \t" + JSON.stringify(productManager.returnsMostSellingCat(categoryMap)));
-        console.log("\nLeast selling category : \n \t" + JSON.stringify(productManager.returnsLeastSellingCat(categoryMap)));
-        console.log("\nMost sold product :\n \t" + JSON.stringify(productManager.returnsMostSellingProd(productsSoldMap)));
-        console.log("\nLeast sold product : \n \t" + JSON.stringify(productManager.returnsLeastSellingProd(productsSoldMap)));
-        console.log("\nMost regular sales : \n \t" + JSON.stringify(productManager.returnsMostRegularSales(daysSoldMap)));
+        console.log("\nAll products and their sales totals :\n \t" + 
+            JSON.stringify(productsSoldMap));
+        console.log("\nMost selling category : \n \t" + 
+            JSON.stringify(productManager.returnsMostSellingCat(categoryMap)));
+        console.log("\nLeast selling category : \n \t" + 
+            JSON.stringify(productManager.returnsLeastSellingCat(categoryMap)));
+        console.log("\nMost sold product :\n \t" + 
+            JSON.stringify(productManager.returnsMostSellingProd(productsSoldMap)));
+        console.log("\nLeast sold product : \n \t" + 
+            JSON.stringify(productManager.returnsLeastSellingProd(productsSoldMap)));
+        console.log("\nMost regular sales : \n \t" + 
+            JSON.stringify(productManager.returnsMostRegularSales(daysSoldMap)));
+        console.log("\nLeast regular sales : \n \t" + 
+            JSON.stringify(productManager.returnsLeastRegularSales(daysSoldMap)));
 }); 
 
 
 //read from file
 fileStream.pipe(csvConverter);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

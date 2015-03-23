@@ -130,6 +130,18 @@ exports.returnsMostRegularSales = function(daysSoldMap){
 		}
 	};
 
+	var maxValue = 0; // assuming positive numbers only
+		for (var key in daysSoldMap) {
+		  if (daysSoldMap[key] > maxValue) {
+		    maxValue = daysSoldMap[key];
+		  }
+		}
+
+//console.log(maxValue + "  most reg sales");
+
+
+
+
 	//console.log(regulars);
   	//return mostRegular;
   	
@@ -139,7 +151,72 @@ exports.returnsMostRegularSales = function(daysSoldMap){
 };
 
 //Least regular sales
-exports.returnsLeastRegularSales = function(){
+
+exports.returnsLeastRegularSales = function(daysSoldMap){
+
+	var products = [];
+
+	//let's create a list of objects from the map so the we can sort the list
+	//
+	//
+		
+	//console.log(daysSoldMap);
+
+	var products = Object.keys(daysSoldMap).map(function(key){
+		return {
+			name : key,
+			days : Number(daysSoldMap[key])
+		}
+	});
+
+	//console.log(products);
+
+	/*
+	for(var product in daysSoldMap){
+		products.push({
+			name : product,
+			days : Number(daysSoldMap[product])
+		});
+	}
+	*/
+
+	//let's sort the list descending on days for each product
+	var sortedProducts = products.sort(function(p1, p2){
+		// -1 less than
+		// 0 eq
+		// 1 greater than
+		return p1.days - p2.days;
+	});
+
+	/*
+	var regulars = sortedProducts.filter(function(product){
+		return product.days === sortedProducts[0].days;
+	});
+	*/
+
+	var regulars = [];
+	for (var i = 0; i < sortedProducts.length; i++) {
+		if(sortedProducts[i].days === sortedProducts[0].days){
+			regulars.push(sortedProducts[i]);
+		}
+	};
+
+	var maxValue = 0; // assuming positive numbers only
+		for (var key in daysSoldMap) {
+		  if (daysSoldMap[key] < maxValue) {
+		    maxValue = daysSoldMap[key];
+		  }
+		}
+
+//console.log(maxValue + "  least reg sales");
+
+
+
+
+	//console.log(regulars);
+  	//return mostRegular;
+  	
+  	return regulars;
 
 
 };
@@ -181,7 +258,12 @@ exports.returnsLeastRegularSales = function(){
 
 
 
-
+// var highScores = [];
+// 	for (var i = 0; i < kids.length; i++) {
+// 		if(kids[i].scores === kids[0].scores){
+// 			highScores.push(kids[i]);
+// 		}
+// 	}
 
 
 
