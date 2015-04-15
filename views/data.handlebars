@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Spaza Chart</title>
+   <script src="http://d3js.org/d3.v3.min.js"></script>
+   <script src="http://dimplejs.org/dist/dimple.v2.1.2.min.js"></script>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+
+<div class="container">
+<div class="header">
+        <h1><span>Graph</span><span>Spaza</span></h1>
+</div>
+   <script type="text/javascript">
+    var svg = dimple.newSvg("body", 1200, 600);
+   
+
+    var data = [{
+    "category": "stapleFoods",
+    "quantity": 444
+}, {
+    "category": "nonPerishables",
+    "quantity": 278
+}, {
+    "category": "drinks",
+    "quantity": 328
+}, {
+    "category": "bathroom",
+    "quantity": 76
+}, {
+    "category": "fruit",
+    "quantity": 228
+}, {
+    "category": "giftItems",
+    "quantity": 220
+}];
+    var chart = new dimple.chart(svg, data);
+    chart.addCategoryAxis("x", "category");
+    chart.addMeasureAxis("y", "quantity");
+    chart.addSeries(null, dimple.plot.bar);
+    chart.draw();
+  </script>
+</div><!-- /.container -->
+   
+</body>
+</html>
+ 
+
+

@@ -1,27 +1,3 @@
-// var express = require('express');
-// var exphbs = require('express-handlebars');
-// var app = express();
-// app.engine('handlebars', exphbs({
-//     defaultLayout: 'main'
-// }));
-
-// app.set('view engine', 'handlebars');
-// app.use(express.static('views'));
-
-// app.get('/', function(req, res) {
-//     res.render('index');
-// });
-
-
-// app.listen(3000);
-// console.log('doing my thing at http://3000');
-
-
-
-
-
-//var appSpaza = angular.module("Spaza", []);
-
 var express = require('express');
 var exphbs = require('express-handlebars');
 var app = express();
@@ -35,6 +11,20 @@ var name = require('./public/regularSales.json');
 var mostSellingCategory = require('./public/mostSellingCategory.json');
 //var mostRegularSales = ;
 
+var mysql = require('mysql'),
+    bodyParser = require('body-parser'),
+    products = require('./routes/products');
+
+var myConnection = require('express-myconnection');
+
+var dbOptions = {
+      host: 'localhost',
+      user: 'root',
+      password: 'spot',
+      port: 3306,
+      database: 'spaza'
+};
+
 
 
 
@@ -47,29 +37,34 @@ app.engine('handlebars', exphbs({
 app.set('view engine', 'handlebars');
 app.use(express.static('views'));
 app.use(express.static('public'));
-// app.use(passport.initialize());
-// app.use(passport.session());
 
-//  //var productManager = new ProductManager(products);
-// app.get('/', function(req, res) {
- 
-//     res.render('login', {layout: false});
-// });
-// app.post('/login', {layout: false}, function(req, res) {
-//  	passport.authenticate('local', {
-//  		failureRedirect: '/login',
-//  		successRedirect: '/user'
-//  	});
-    
-// });
-// app.get('/user', routes.user ) {
- 
-//     res.render('login', {layout: false});
-// };
+
+
+//setup middleware
+app.use(myConnection(mysql, dbOptions, 'single'));
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json())
+
+// 
+// *****Import files into db******
+// LOAD DATA LOCAL INFILE '/Users/Mysterion/codex/spaza-pair/Spaza/public/Sales.csv'
+//INTO TABLE spaza.purchase_table
+//FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r';
+
+// 
+// 
+// 
 
 app.get('/', function(req, res) {
  
     res.render('index',{totalSales:totalSales});
+});
+
+app.get('/data', function(req, res) {
+ 
+    res.render('data', {layout: false});
 });
 app.get('/regularSales', function(req, res) {
  
@@ -107,7 +102,7 @@ app.get('/*', function(req, res) {
 
 
 app.listen(3000);
-console.log('doing my thing at http://3000');
+console.log('doing my thing at http://localhost:3000');
 
 
 

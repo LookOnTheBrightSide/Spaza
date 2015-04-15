@@ -2,7 +2,7 @@
   "name": "Spaza",
   "version": "0.2.0",
   "description": "Nelisa's Spaza Shop",
-  "main": "",
+  
   "scripts": {
     "test": "qunit -c ./productManager.js -t ./test/*.js"
   },
@@ -16,11 +16,23 @@
     "url": "https://github.com/Django0505/codeX_ReleaseOneNarrative/issues"
   },
   "dependencies": {
-    "express": "^4.12.3",
+    "bcrypt-nodejs": "*",
+   "body-parser": "^1.9.2",
+    "connect-flash": "*",
+    "cookie-parser": "~1.0.1",
+    "debug": "~0.7.4",
+    "express": "~4.2.0",
     "express-handlebars": "^2.0.0",
-    "nodemon": "^1.3.7",
-    "passport": "^0.2.1",
-    "passport-local": "^1.0.0",
-    "qunit": "~0.7.5"
+    "express-session": "~1.0.4",
+    "jade": "~1.3.0",
+    "mongoose": "~3.8.12",
+    "morgan": "~1.0.0",
+    "passport": "~0.2.0",
+    "passport-local": "~1.0.0",
+    "static-favicon": "~1.0.0",
+    "mysql": "*",
+    "express-myconnection": "^1.0.4",
+    
+    "prompt": "^0.2.14"
   }
 }
