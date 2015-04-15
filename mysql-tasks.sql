@@ -1,35 +1,16 @@
--- understand this
-insert into sales (on_date, day, product_id, quantity, sale_price)
-	
-	select  date, dayname(date) as day, product_id, no_sold, sales_price 
-	from 	purchase_table pt, 
-			products p 
-	where pt.stock_item = p.product_name;
+-- SPAZA STORIES
+--Display all the product sales and their totals in descending order(highest value 1st)
+select stock_item, sum(no_sold) 
+	as sold_total 
+		from purchase_table 
+			group by stock_item
+				order by sold_total desc;
 
--- how to join tables...
-select 
-	category_name, 
-	from sales, products, categories 
-	where 
-		???????
-
--- populate the suppliers table;
-
--- populate the purchases table
-
--- how to use group by - to aggregate to find - min / max / sum / count / avg
-
---group by
-
--- which Day got this most items sold
-
-
-
-select * 
-	from products join categories
-	on products.product_id = categories.category_name
-
-
+--Display all products and their category names in order of category name asc
+select product_name,category_name 
+	from products join categories  
+		on products.category_id = categories.category_id 
+			order by category_name asc;
 
 
 
