@@ -1,21 +1,26 @@
-<h1>Products</h1>
+<h2>Products</h2>
 
-{{#products}}
-  <h2>{{description}}</h2>
-  <a href="/products/edit/{{id}}">Edit</a>
-  <a href="/products/delete/{{id}}">Delete</a>
-{{/products}}
 
-{{#empty}}
-  <p>The list is empty.</p>
-{{/empty}}
+<table class="table">
+	   <thead>
+        
+          <th>Product Id</th>
+          <th>Product Name</th>
+          <th>Category Id</th>
+          
+      
+      </thead>
+      <tbody>
+      	     {{#each products}}
+			<tr>
+			    <td>{{product_id}}</td>
+			    <td>{{product_name}}</td>
+			    <td>{{category_id}}</td>
+			</tr>
+		    {{/each}}
+      </tbody>
 
-<div id="add-products">
-	
-	<h1>Add a product</h1>
-	<form action="products/add" method="POST">
-		Description: <input type="text" name="description">	
-		<input type="submit">
-	</form>
-</div>
+</table>
 
+			<!-- end: Content -->
+				

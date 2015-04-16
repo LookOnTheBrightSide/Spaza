@@ -1,0 +1,26 @@
+<h2>Orders Table</h2>
+<table class="table">
+	   <thead>
+          <th>Shop</th>
+          <th>Date</th>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Cost</th>
+          <th>Total Cost</th>
+        </thead>
+		      <tbody>
+		      	     {{#each orders}}
+					<tr>
+					    <td>{{shop}}</td>
+					    <td>{{date}}</td>
+					    <td>{{item}}</td>
+					    <td>{{quantity}}</td>
+					    <td>{{cost}}</td>
+					    <td>{{total_cost}}</td>
+					</tr>
+				    {{/each}}
+		      </tbody>
+		</table>
+
+			<!-- end: Content -->
+				

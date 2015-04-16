@@ -1,0 +1,20 @@
+<h2>Suppliers</h2>
+<table class="table">
+	   <thead>
+          <th>Supplier Name</th>
+          <th>Product Name</th>
+        
+        </thead>
+		      <tbody>
+		      	     {{#each orders}}
+					<tr>
+					    <td>{{supplier}}</td>
+					    <td>{{product_name}}</td>
+					  
+					</tr>
+				    {{/each}}
+		      </tbody>
+		</table>
+
+			<!-- end: Content -->
+				

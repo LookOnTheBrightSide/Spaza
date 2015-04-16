@@ -1,0 +1,17 @@
+<h2>Most Sold</h2>
+<table class="table">
+	   <thead>
+          <th>Product Name</th>
+          <th>Total Sold</th>
+        
+        </thead>
+		      <tbody>
+		      	     {{#each mostSold }}
+					<tr>
+					    <td>{{stock_item}}</td>
+					    <td>{{sold_total}}</td>
+					  
+					</tr>
+				    {{/each}}
+		      </tbody>
+		</table>

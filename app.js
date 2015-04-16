@@ -13,7 +13,8 @@ var mostSellingCategory = require('./public/mostSellingCategory.json');
 
 var mysql = require('mysql'),
     bodyParser = require('body-parser'),
-    products = require('./routes/products');
+    products = require('./routes/products'),
+    orders = require('./routes/orders');
 
 var myConnection = require('express-myconnection');
 
@@ -58,46 +59,81 @@ app.use(bodyParser.json())
 // 
 
 app.get('/', function(req, res) {
- 
-    res.render('index',{totalSales:totalSales});
+    res.render('index');
 });
+
+app.get('/products',products.show);
+
+app.get('/orders',orders.show);
+
+app.get('/suppliers', products.suppliers);
+app.get('/productsAndCategories',products.productsAndCategories);
+app.get('/mostSold',products.mostSold);
+app.get('/leastSold',products.leastSold);
+
 
 app.get('/data', function(req, res) {
- 
-    res.render('data', {layout: false});
-});
-app.get('/regularSales', function(req, res) {
- 
-    res.render('regularSales',{regularSales:name});
-});
-app.get('/categories', function(req, res) {
-    
-    //var categories = yourModuleThatProcessTheData.getCategories();
-
-    res.render('categories',{categories:categories});
-});
-app.get('/spazaData', function(req, res) {
-    
-    //var spazaData = yourModuleThatProcessTheData.getCategories();
-
-    res.render('spazaData',{spazaData:tableJs});
+    res.render('data');
 });
 
-app.get('/mostSellingCategory', function(req, res) {
-    
-    //var mostSellingCategory = yourModuleThatProcessTheData.getCategories();
+app.get('/calendar', function(req, res) {
+    res.render('calendar');
+});
 
-    res.render('mostSellingCategory',{mostSellingCategory: mostSellingCategory});
+app.get('/chart', function(req, res) {
+    res.render('chart');
+});
+
+app.get('/file-manager', function(req, res) {
+    res.render('file-manager');
+});
+
+app.get('/form', function(req, res) {
+    res.render('form');
+});
+
+
+
+app.get('/icon', function(req, res) {
+    res.render('icon');
+});
+
+app.get('/infrastructure', function(req, res) {
+    res.render('infrastructure');
+});
+
+app.get('/login', function(req, res) {
+    res.render('login');
+});
+
+app.get('/messages', function(req, res) {
+    res.render('messages');
+});
+
+app.get('/table', function(req, res) {
+    res.render('table');
+});
+
+app.get('/tasks', function(req, res) {
+    res.render('tasks');
+});
+
+app.get('/typography', function(req, res) {
+    res.render('typography');
+});
+app.get('/ui', function(req, res) {
+    res.render('ui');
+});
+app.get('/widgets', function(req, res) {
+    res.render('widgets');
 });
 
 app.get('/*', function(req, res) {
- 
+    res.render('index');
+});
+app.get('/*', function(req, res) {
     res.render('error', {layout: false});
 });
-
-
-
-
 
 
 
