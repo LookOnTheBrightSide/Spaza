@@ -4,20 +4,36 @@
  */	
 
 //todo - fix the error handling
-
+//
 exports.show = function (req, res, next) {
+	
 	req.getConnection(function(err, connection){
 		if (err) 
 			return next(err);
-		connection.query('SELECT * from products', [], function(err, results) {
+		connection.query('SELECT * from products', [], function(err, results,fields) {
         	if (err) return next(err);
-
+        	
     		res.render( 'home', {
     			products : results
     		});
       });
 	});
 };
+//
+
+// exports.show = function (req, res, next) {
+// 	req.getConnection(function(err, connection){
+// 		if (err) 
+// 			return next(err);
+// 		connection.query('SELECT * from products', [], function(err, results) {
+//         	if (err) return next(err);
+
+//     		res.render( 'home', {
+//     			products : results
+//     		});
+//       });
+// 	});
+// };
 
 exports.suppliers = function(req, res, next){
 	
@@ -51,14 +67,17 @@ exports.productsAndCategories = function(req, res, next){
 
 }
 exports.mostSold = function(req, res, next){
-	
+	var fs = require('fs');
 	req.getConnection(function(err, connection){
 		if (err) 
 			return next(err);
 		connection.query('select stock_item, sum(no_sold) as sold_total from purchase_table group by stock_item order by sold_total desc;',
 			 [], function(err, results) {
         	if (err) return next(err);
-
+fs.writeFile('fsProductsTable.json', JSON.stringify(results), function(err){
+        		if (err) throw err;
+        		console.log('saved you file!');
+        	})
     		res.render( 'mostSold', {
     			mostSold : results
     		});

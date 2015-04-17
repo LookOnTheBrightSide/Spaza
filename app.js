@@ -1,6 +1,7 @@
 var express = require('express');
 var exphbs = require('express-handlebars');
 var app = express();
+var fs = require('fs');
 //
 var passport = require('./auth');
 
@@ -70,7 +71,11 @@ app.get('/suppliers', products.suppliers);
 app.get('/productsAndCategories',products.productsAndCategories);
 app.get('/mostSold',products.mostSold);
 app.get('/leastSold',products.leastSold);
-
+//
+app.get('/productsGraph', function(req, res) {
+    res.render('productsGraph', {layout: false});
+});
+//
 
 app.get('/data', function(req, res) {
     res.render('data');
