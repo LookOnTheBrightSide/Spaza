@@ -76,7 +76,7 @@ exports.mostSold = function(req, res, next){
         	if (err) return next(err);
 fs.writeFile('fsProductsTable.json', JSON.stringify(results), function(err){
         		if (err) throw err;
-        		console.log('saved you file!');
+        		console.log('saved mostSold File!');
         	})
     		res.render( 'mostSold', {
     			mostSold : results

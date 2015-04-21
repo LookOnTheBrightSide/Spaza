@@ -39,6 +39,7 @@ app.engine('handlebars', exphbs({
 app.set('view engine', 'handlebars');
 app.use(express.static('views'));
 app.use(express.static('public'));
+app.use(express.static('.'));
 
 
 
@@ -73,8 +74,13 @@ app.get('/mostSold',products.mostSold);
 app.get('/leastSold',products.leastSold);
 //
 app.get('/productsGraph', function(req, res) {
-    res.render('productsGraph', {layout: false});
+    res.render('productsGraph'); 
 });
+// API
+app.get('/api', function(req, res) {
+    res.json('/fsProductsTable.json'); 
+});
+//res.set('Content-Type', 'application/json; charset=utf-8'); res.send(JSON.stringify(data)); 
 //
 
 app.get('/data', function(req, res) {

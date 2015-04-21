@@ -6,7 +6,7 @@ select stock_item, sum(no_sold)
 			group by stock_item
 				order by sold_total desc;
 
-				
+
 
 
 
@@ -16,8 +16,11 @@ select product_name,category_name
 		on products.category_id = categories.category_id 
 			order by category_name asc;
 
-
-
+--Displays all products and their categories
+	select product_name,category_name 
+	from products join categories  
+		on products.category_id = categories.category_id 
+			order by category_name asc;
 
 
 
