@@ -8,7 +8,7 @@ div.navbar-inner{
 	background-color: #1D9156;
 }
 
-a.brand ,.noBg {
+a.brand {
 	background-color: #1D9156;
 	color: #1D9156;
 	 border-bottom: #1D9156;
@@ -18,4 +18,17 @@ a.brand ,.noBg {
 }
 footer{
 	background-color: #1D9156;
+}
+a.brand.noBg{
+	background-color: #1D9156;
+}
+
+.nelisa {
+  font: 400 95px/1.6 'Pacifico', Georgia, serif;
+  text-align: center;
+  padding-top: 1em;
+}
+.nelisaSub {
+  font: 400 24px/1.6 'Arimo', Verdana, Helvetica, sans-serif;
+  text-align: center;
 }
